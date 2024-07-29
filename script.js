@@ -12,6 +12,7 @@ function init() {
   initCells();
  initNumbers();
  initRemover();
+ initKeyEvent();
 }
 
 function initCells() {
@@ -129,5 +130,29 @@ function highLightDuplicates(dulicatesPositions){
 }
 
 function initRemover(){
+const remover =document.querySelector('.remove');
+remover.addEventListener('click',()=>onRemoveClick());
+}
 
+function onRemoveClick(){
+  if(!selectedCell)return;
+  if(selectedCell.classList.contains('filled'))return;
+
+  cells.forEach(cell=>cell.classList.remove('error','shake','zoom','selected'));
+selectedCell.classList.add('selected');
+
+const {row,column}=convertIndexToPosition(selectedCellIndex);
+selectedCell.innerHTML='';
+sudoku.grid[row][column]=null;
+}
+
+function initKeyEvent(){
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Backspace'){
+    onRemoveClick();
+  }else if(event.key>='1'&&event.key<='9'){
+    onNumberClick(parseInt(event.key));
+  }
+
+ });
 }
