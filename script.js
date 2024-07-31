@@ -108,6 +108,10 @@ if(selectedCell.classList.contains('filled'))return;
 cells.forEach(cell=>cell.classList.remove('error','shake','zoom','selected'));
 selectedCell.classList.add('selected');
 setValueInSelectedCell(number);
+
+if(!sudoku.hasEmptyCells()){
+  setTimeout(()=>winAnimation(),500)
+}
 }
 
 function setValueInSelectedCell(value){
@@ -155,4 +159,16 @@ function initKeyEvent(){
   }
 
  });
+}
+
+
+function winAnimation(){
+  cells.forEach(cell=>cell.classList.remove('error','shake','zoom','selected','highLighted'));
+  cells.forEach((cell,i)=>{
+    setTimeout(()=>cell.classList.add('highLighted','zoom'),i*15);
+  });
+
+  for(let i=1; i<10;i++){
+    setTimeout(()=>cells.forEach(cell=>cell.classList.toggle('highLighted')),500+cells.length*15+300*i);
+  }
 }

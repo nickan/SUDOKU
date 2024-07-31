@@ -132,3 +132,11 @@ body {
     transform: scale(1.2);
   }
 }
+
+@media (max-width:600px) {
+  :root{
+   
+    --cell-size: 10vmin;
+    --font-size: 5.5vmin;
+  }
+}
