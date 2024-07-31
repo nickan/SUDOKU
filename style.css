@@ -87,6 +87,32 @@ body {
   color: var(--alt-text-color);
 }
 
+.wrap_lvl{
+  align-items: center;
+  margin-top: 2vmin;
+  display: flex;
+  justify-content: space-between;
+}
+.lablel_lvl{
+  margin-left: 2vmin;
+  font-size: var(--font-size);
+}
+.lvl{
+width:calc(var(--cell-size)*6) ;
+accent-color: var(--selected);
+}
+.btn_lvl{
+  align-items: center;
+  height: var(--cell-size);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-cell);
+  font-size: calc(var(--font-size)-1);
+  color: var(--text-color);
+  cursor: pointer;
+}
+  
+
 .numbers {
   display: grid;
   grid-template-columns: repeat(5, auto);

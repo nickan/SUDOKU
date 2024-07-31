@@ -1,5 +1,8 @@
 import { BOX_SIZE, GRID_SIZE } from "./utilities.js";
 
+const range =document.querySelector('.lvl');
+const label = document.querySelector('.lablel_lvl');
+
 export function generateSudoku() {
   const sudoku = createEmptyGrid();
   resolveSudoku(sudoku);
@@ -79,7 +82,7 @@ function validateBox(grid, row, column, value) {
 }
 
 function removeCells(grid) {
-  const DIFFICULTY = 30;
+  const DIFFICULTY = range.value;
   const resultGrid = [...grid].map(row => [...row]);
 
   let i = 0;
@@ -94,3 +97,18 @@ function removeCells(grid) {
 
   return resultGrid;
 }
+
+const updateLabel = () => {
+  label.innerHTML = range.value;
+  localStorage.setItem('rangeValue', range.value);
+};
+const savedValue = localStorage.getItem('rangeValue');
+if (savedValue !== null) {
+    range.value = savedValue;
+    label.innerHTML = savedValue;
+}
+range.addEventListener('input', updateLabel);
+
+function refreshPage(){
+  window.location.reload();
+} 
