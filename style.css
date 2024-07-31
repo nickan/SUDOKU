@@ -11,7 +11,7 @@
 
   --gap: 0.5vmin;
   --border-radius: 0.5vmin;
-  --cell-size: 8vmin;
+  --cell-size: 7vmin;
   --font-size: 3vmin;
 }
 
@@ -92,22 +92,24 @@ body {
   margin-top: 2vmin;
   display: flex;
   justify-content: space-between;
+  
 }
 .lablel_lvl{
   margin-left: 2vmin;
   font-size: var(--font-size);
+
 }
 .lvl{
-width:calc(var(--cell-size)*6) ;
+width:calc(var(--cell-size)*4) ;
 accent-color: var(--selected);
 }
 .btn_lvl{
   align-items: center;
   height: var(--cell-size);
-  padding: 10px;
+  padding: 0 calc(var(--font-size)*0.2);
   border-radius: var(--border-radius);
   background-color: var(--bg-cell);
-  font-size: calc(var(--font-size)-1);
+  font-size: calc(var(--font-size)*0.8);
   color: var(--text-color);
   cursor: pointer;
 }
@@ -162,7 +164,7 @@ accent-color: var(--selected);
 @media (max-width:600px) {
   :root{
    
-    --cell-size: 10vmin;
+    --cell-size: 9vmin;
     --font-size: 5.5vmin;
   }
 }
